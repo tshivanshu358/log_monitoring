@@ -3,10 +3,9 @@
 # Function to monitor log file
 monitor_log_file() {
     local logfile="$1"
-    local lines_to_process=10                         # To check limited number of lines
+    local lines_to_process=10                         # To check static log file limited number of lines
     tail -n "$lines_to_process" -f "$logfile" | while read -r line; do
-        echo "$line"
-        analyze_log_entry "$line" 
+        echo "$line" 
         
     #tail -n0 -f "$logfile" | while read line; do
      #   echo "$line"                               # To display new log entries
