@@ -3,8 +3,13 @@
 # Function to monitor log file
 monitor_log_file() {
     local logfile="$1"
-    tail -n0 -f "$logfile" | while read line; do
-        echo "$line"                               # To display new log entries
+    local lines_to_process=10                         # To check limited number of lines
+    tail -n "$lines_to_process" -f "$logfile" | while read -r line; do
+        echo "$line"
+        analyze_log_entry "$line" 
+        
+    #tail -n0 -f "$logfile" | while read line; do
+     #   echo "$line"                               # To display new log entries
     done
 }
 
