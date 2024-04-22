@@ -16,4 +16,4 @@ jobs:
 
      
       - name: Run tests
-        run: ./log-monitor.sh
+        run: ./log-monitoring.sh
